@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: jssi-pos-db
+    environment:
+      POSTGRES_DB: jssi_pos
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  pgdata:
