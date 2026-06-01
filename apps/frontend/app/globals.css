@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffbeb;
+  --foreground: #0f172a;
+  --color-surface: #ffffff;
+  --color-surface-raised: #fff7e7;
+  --color-primary: #78716c;
+  --color-on-primary: #ffffff;
+  --color-secondary: #92400e;
+  --color-on-secondary: #ffffff;
+  --color-accent: #d97706;
+  --color-on-accent: #111827;
+  --color-muted: #f6efe0;
+  --color-border: #e9dcc4;
+  --color-success: #166534;
+  --color-on-success: #f0fdf4;
+  --color-warning: #b45309;
+  --color-on-warning: #ffffff;
+  --color-error: #b91c1c;
+  --color-on-error: #ffffff;
+  --color-info: #1d4ed8;
+  --color-on-info: #eff6ff;
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-card: 0 16px 44px rgba(146, 64, 14, 0.14);
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-primary: var(--color-primary);
+  --color-on-primary: var(--color-on-primary);
+  --color-secondary: var(--color-secondary);
+  --color-on-secondary: var(--color-on-secondary);
+  --color-accent: var(--color-accent);
+  --color-on-accent: var(--color-on-accent);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+  --color-success: var(--color-success);
+  --color-on-success: var(--color-on-success);
+  --color-warning: var(--color-warning);
+  --color-on-warning: var(--color-on-warning);
+  --color-error: var(--color-error);
+  --color-on-error: var(--color-on-error);
+  --color-info: var(--color-info);
+  --color-on-info: var(--color-on-info);
+  --font-sans: var(--font-plus-jakarta-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-card: var(--shadow-card);
 }
 
 body {
-  background: var(--background);
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 12% -8%, rgba(217, 119, 6, 0.2), transparent 45%),
+    radial-gradient(circle at 88% 10%, rgba(120, 113, 108, 0.18), transparent 48%),
+    var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta-sans), "Segoe UI", sans-serif;
+}
+
+.animate-rise-in {
+  animation: rise-in 220ms ease-out both;
+}
+
+.animate-rise-in-delay {
+  animation: rise-in 260ms ease-out both;
+}
+
+.animate-rise-in-delay-2 {
+  animation: rise-in 300ms ease-out both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise-in,
+  .animate-rise-in-delay,
+  .animate-rise-in-delay-2 {
+    animation: none;
+  }
 }
